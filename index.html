@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/ef4fc648eb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Projects</a></li>
+                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        
+        <div class="header-text">
+            <p id="changing-text" class="fade-in-out">Full-Stack Developer</p>
+            <h1>Hi,I'm <span>Rahul</span><br>Sharma From India</h1>
+        </div>
+    </div>
+  </div>
+
+  <!---------------------ABOUT-------------------------------->
+  
+<div id="About">
+    <div class="container">
+        <div class="row">
+            <div class="About-col-1">
+               <img src="images/photo.jpg" alt="Rahul's photo"> 
+            </div>
+            <div class="About-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>
+                    This is Rahul final year student pursuing Engineering in Computer Science.
+                    Rahul is doing Full stack with Java and have good knowledge of DS & Algorithms.
+                    He is ready to work with the organization where he can Learn and grow his Skillset for future.
+                </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Java Developer</span><br>Making java-based Software</li>
+                        <li><span>Web Developer</span><br>Making website with (MERN,JAVA etc.)</li>
+                        <li><span>Android Developer</span><br>Making java-based Apps</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>Java Developer</span><br>Making java-based Software</li>
+                        <li><span>Web Developer</span><br>Making website with (MERN,JAVA etc.)</li>
+                        <li><span>Android Developer</span><br>Making java-based Apps</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Java Developer</span><br>Making java-based Software</li>
+                        <li><span>Web Developer</span><br>Making website with (MERN,JAVA etc.)</li>
+                        <li><span>Android Developer</span><br>Making java-based Apps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------------------CONTACT---------------------------------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> developerrahul671@gmail.com</p>
+                <p><i class="fa-solid fa-phone-volume"></i> +91 9460369975</p>
+                <div class="social-icons">
+                    <a href="https://github.com/r4huldeveloper"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://twitter.com/r4huldeveloper"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/yufi/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="images/Rahul Resume(updated).pdf" download class="btn btn1">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form>
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn1 btn2">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <!--COPYRIGHT SIGN IS ALT + 0169 -->
+        <p>Copyright © Rahul. Made with by Dedication<i class="fa-solid fa-heart"></i> </p>
+
+    </div>
+</div>
+ 
+
+<script>
+
+const changingText = document.getElementById('changing-text');
+const textOptions = ['Full-Stack Developer', 'App Developer', 'Web Developer'];
+let currentIndex = 0;
+function changeText(){
+        changingText.textContent = textOptions[currentIndex];
+    // when 'currentIndex' reaches at the end of 'textOptions' then % reset it to '0' because 3%3==0 for the infinite loop;
+        currentIndex = (currentIndex + 1) % textOptions.length;
+        
+    }
+    // Call the changeText function every 2 seconds (2000 ms)
+    setInterval(changeText,2000);
+
+
+
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    var sidemenu = document.getElementById('sidemenu');
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+</body>
+</html>
